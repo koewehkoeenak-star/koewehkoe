@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Koeweh — A Little Taste of Happiness</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Konfigurasi dan JavaScript -->
+    <script src="config.js"></script>
+    <script src="receipt.js"></script>
+    <script src="script.js" defer></script>   
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="top">
+        <a class="brand" href="index.html">
+              <img src="foto/logo.png" alt="Koeweh" width="44">
+
+            <span>
+                <strong>Koeweh</strong>
+                <small>A Little Taste of Happiness</small>
+            </span>
+        </a>
+
+        <a href="#keranjang" class="cartlink">
+            Keranjang
+            <i id="cartBadge">0</i>
+        </a>
+    </header>
+
+    <main>
+
+        <!-- HERO / BERANDA -->
+        <section class="hero">
+            <div>
+                <p class="eyebrow">HOMEMADE WITH LOVE</p>
+
+                <h1>
+                    Little bites,<br>
+                    <em>big happiness.</em>
+                </h1>
+
+                <p>
+                    Risol lezat untuk menemani harimu.
+                    Pilih favoritmu, masukkan ke keranjang,
+                    lalu pesan dengan mudah.
+                </p>
+
+                <a class="btn dark" href="#menu">
+                    Lihat Menu ↓
+                </a>
+            </div>
+
+            <div class="heroimg">
+                <img
+                    src="foto/logo.png"
+                    alt="Risol Koeweh"
+                    onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"
+                >
+
+                <div class="placeholder" hidden>
+                    KOEWEH ♡
+                </div>
+
+                <span>
+                    freshly<br>
+                    made ♡
+                </span>
+            </div>
+        </section>
+
+        <!-- DAFTAR MENU -->
+        <section class="section" id="menu">
+            <p class="eyebrow">MADE FOR YOUR HAPPY MOMENT</p>
+    
+            <h2>Menu favorit</h2>
+
+            <p class="muted">
+                Pilih varian dan jumlah yang kamu mau.
+            </p>
+
+            <div id="daftarMenu" class="grid"></div>
+        </section>
+
+        <!-- KERANJANG DAN CHECKOUT -->
+        <section class="section order" id="keranjang">
+            <p class="eyebrow">YOUR LITTLE HAPPINESS</p>
+
+            <h2>Keranjang &amp; pesanan</h2>
+
+            <div class="columns">
+
+                <!-- KERANJANG -->
+                <div class="panel">
+                    <h3>Keranjang kamu</h3>
+
+                    <div id="cartItems">
+                        <p class="muted">
+                            Keranjang masih kosong.
+                        </p>
+                    </div>
+
+                    <div class="total">
+                        <span>Total</span>
+                        <strong id="totalHarga">Rp0</strong>
+                    </div>
+                </div>
+
+                <!-- FORM CHECKOUT -->
+                <form id="checkoutForm" class="panel">
+                    <h3>Data pemesan</h3>
+
+                    <label for="nama">Nama lengkap</label>
+                    <input
+                        id="nama"
+                        name="nama"
+                        type="text"
+                        required
+                        maxlength="100"
+                        placeholder="Nama kamu"
+                    >
+
+                    <label for="kontak">Nomor WhatsApp</label>
+                    <input
+                        id="kontak"
+                        name="kontak"
+                        type="tel"
+                        required
+                        maxlength="30"
+                        placeholder="08xxxxxxxxxx"
+                    >
+
+                   <label for="alamat">
+                         Catatan / jam ambil (opsional)
+                   </label>
+
+                <textarea
+                    id="alamat"
+                    name="alamat"
+                    rows="2"
+                    maxlength="500"
+                    placeholder="Contoh: diambil jam 4 sore, atau titip ke kakak"
+                ></textarea>
+
+                    <label for="metodePembayaran">
+                        Metode pembayaran
+                    </label>
+
+                    <select id="metodePembayaran" name="metodePembayaran">
+                        <option value="QRIS">QRIS</option>
+                        <option value="Transfer Bank">Transfer Bank</option>
+                    </select>
+
+                    <!-- INFORMASI PEMBAYARAN DARI JAVASCRIPT -->
+                    <div
+                        id="paymentInstructions"
+                        class="payment"
+                    ></div>
+
+                    <button
+                        id="submitOrder"
+                        class="btn primary full"
+                        type="submit"
+                    >
+                        Buat pesanan
+                    </button>
+
+                    <p class="tiny">
+                        Pembayaran manual diverifikasi oleh owner.
+                    </p>
+
+                    <div
+                        id="statusPesan"
+                        role="status"
+                        class="notice"
+                    ></div>
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <strong>Koeweh</strong>
+        <span>A Little Taste of Happiness ♡</span>
+    </footer>
+
+</body>
+</html>

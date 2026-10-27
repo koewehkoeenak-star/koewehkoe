@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Owner — Koeweh</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="receipt.js"></script>
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="index.html">
+        <img src="foto/logo.png" alt="Koeweh" width="44">
+      <span>
+        <strong>Koeweh Admin</strong>
+        <small>Order management</small>
+      </span>
+    </a>
+    <a href="index.html">← Lihat website</a>
+  </header>
+
+  <main class="admin">
+    <p class="eyebrow">PRIVATE AREA</p>
+    <h1>Dashboard pesanan</h1>
+    <p class="muted">Login dengan akun owner Supabase.</p>
+
+    <section id="loginPanel" class="panel login">
+      <h3>Login owner</h3>
+      <form id="loginForm">
+        <label for="adminEmail">Email owner</label>
+        <input id="adminEmail" type="email" required>
+
+        <label for="adminPassword">Password</label>
+        <input id="adminPassword" type="password" required>
+
+        <button class="btn primary full" type="submit">Login</button>
+      </form>
+      <div id="loginMessage" class="notice"></div>
+    </section>
+
+    <section id="dashboardPanel" hidden>
+      <div class="dashhead">
+        <h2>Pesanan masuk</h2>
+        <div>
+          <button id="refreshOrders" class="btn light" type="button">Refresh</button>
+          <button id="logoutButton" class="btn dark" type="button">Logout</button>
+        </div>
+      </div>
+
+      <div id="adminMessage" class="notice"></div>
+
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pesanan</th>
+              <th>Customer</th>
+              <th>Detail</th>
+              <th>Pembayaran</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="ordersBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Koeweh</strong>
+    <span>Dashboard khusus owner</span>
+  </footer>
+</body>
+</html>
