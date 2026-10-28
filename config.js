@@ -5,7 +5,7 @@ window.KOEWEH_CONFIG={
  PAYMENT:{
     Image:"foto/qris.jpg",
     bankName:"BSI",
-    accountNumber:"0999999999",
+    accountNumber:"-",
     accountHolder:"ABYASA",
     codNote:"Bayar saat pesanan diterima."
       },
