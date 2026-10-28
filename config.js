@@ -19,14 +19,8 @@ window.KOEWEH_CONFIG={
       { id: 3, nama: "Risol Blackpaper",Image: "foto/risol-blackpaper.jpg",
         deskripsi: "Sensasi risol gurih dengan isian bercita rasa lada hitam yang khas. Aromanya menggoda, rasanya kaya rempah dengan sentuhan pedas hangat, dibalut kulit renyah yang bikin susah berhenti ngemil. harga tertera untuk 1 pack isi 10pcs.",
         hargaFrozen: 25000, hargaGoreng: 30000 } ,
-         { id: 4, nama: "Risol Geprek", Image: "foto/risol-geprek.jpg",
-        deskripsi: "Buat pencinta pedas, risol geprek hadir dengan isian bercita rasa ayam geprek yang gurih dan pedas menggigit. Kulitnya renyah dengan sensasi pedas yang menggugah selera di setiap gigitan!. harga tertera untuk 1 pack isi 10pcs.",
+         { id: 4, nama: "Risol Kari", Image: "foto/risol-geprek.jpg",
+        deskripsi: "harga tertera untuk 1 pack isi 10pcs.",
         hargaFrozen: 30000, hargaGoreng: 35000 },
-      { id: 5, nama: "Risol Bolognese", Image: "foto/risol-bolognese.jpg",
-        deskripsi: "Perpaduan kulit risol renyah dengan isian saus bolognese bercita rasa tomat dan daging yang gurih. Rasanya kaya, sedikit asam segar, dan menghadirkan sensasi ala Italia dalam setiap gigitan! harga tertera untuk 1 pack isi 10pcs.",
-        hargaFrozen: 30000, hargaGoreng: 35000 },
-      { id: 6, nama: "Curry puff", Image: "foto/curry-puff.jpg",
-        deskripsi: " Pastry berlapis dengan kulit renyah dan isian kari berbumbu yang kaya rasa. Perpaduan rempah aromatik dan isian gurih menjadikan camilan ini nikmat disantap selagi hangat. harga tertera untuk 1 pack isi 10pcs.",
-        hargaFrozen: 30000, hargaGoreng: 35000 }
       ]
 };
