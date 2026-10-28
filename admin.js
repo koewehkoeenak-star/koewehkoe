@@ -351,7 +351,9 @@
           if (!$("dashboardPanel").hidden) loadOrders();
         }
       )
-      .subscribe();
+          .subscribe((status, err) => {
+        console.log("Realtime status:", status, err || "");
+      });
 
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden) {
