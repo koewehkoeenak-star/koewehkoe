@@ -307,5 +307,59 @@
     );
   } else {
     updateDashboard();
+      // ===== Notifikasi pesanan baru =====
+  if (db) {
+    if ("Notification" in window && Notification.permission === "default") {
+      Notification.requestPermission();
+    }
+
+    const judulAsli = document.title;
+    let jumlahBaru = 0;
+
+    // bunyi "ting" tanpa file audio
+    const bunyi = () => {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.frequency.value = 880;
+        gain.gain.setValueAtTime(0.3, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.6);
+      } catch (e) {}
+    };
+
+    db.channel("orders-baru")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "orders" },
+        (payload) => {
+          const order = payload.new;
+
+          bunyi();
+          jumlahBaru++;
+          document.title = `(${jumlahBaru}) ${judulAsli}`;
+
+          if (Notification.permission === "granted") {
+            new Notification("Pesanan baru!", {
+              body: `Dari ${order.nama || "customer"}`,
+            });
+          }
+
+          muatPesanan(); // GANTI, lihat catatan di bawah
+        }
+      )
+      .subscribe();
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        jumlahBaru = 0;
+        document.title = judulAsli;
+      }
+    });
+  }
   }
 })();
