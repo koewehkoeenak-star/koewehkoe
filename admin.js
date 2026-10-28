@@ -345,11 +345,10 @@
 
           if (Notification.permission === "granted") {
             new Notification("Pesanan baru!", {
-              body: `Dari ${order.nama || "customer"}`,
+            body: `Dari ${order.customer_name || "customer"}`,
             });
           }
-
-          muatPesanan(); // GANTI, lihat catatan di bawah
+          if (!$("dashboardPanel").hidden) loadOrders();
         }
       )
       .subscribe();
